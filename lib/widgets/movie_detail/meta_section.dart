@@ -47,7 +47,7 @@ class MetaSection extends StatelessWidget {
       String mapKey) {
     return data[listKey] == null
         ? new Container()
-        : _getMetaInfoSection(title, concatListToString(data[listKey], mapKey));
+        : _getMetaInfoSection(title, concatListToString(data[listKey].retype<Map<dynamic, dynamic>>(), mapKey));
   }
 
   Widget _getSectionOrContainer(String title, String content,

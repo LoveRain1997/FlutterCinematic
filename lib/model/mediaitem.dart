@@ -34,7 +34,7 @@ class MediaItem {
         overview = jsonMap["overview"],
         releaseDate = jsonMap[
             (type == MediaType.movie ? "release_date" : "first_air_date")],
-        genreIds = jsonMap["genre_ids"];
+        genreIds = jsonMap["genre_ids"].retype<int>();
 }
 
 enum MediaType { movie, show }

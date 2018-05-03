@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_search_bar/flutter_search_bar.dart';
 import 'package:movies_flutter/model/searchresult.dart';
@@ -58,9 +60,11 @@ class _SearchPageState extends State<SearchScreen> {
     querySubject.close();
     textController.dispose();
   }
-
-  void _setErrorState(Error error) =>
-      setState(() => _currentState = LoadingState.ERROR);
+//type '(Error) => void' is not a subtype of type '(Object) => FutureOr<dynamic>'
+  Future<dynamic> _setErrorState(Object)  {
+            setState(() => _currentState = LoadingState.ERROR)   ;
+            return null;
+}
 
   @override
   Widget build(BuildContext context) {

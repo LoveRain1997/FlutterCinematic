@@ -21,20 +21,30 @@ class _MediaListState extends State<MediaList> {
   bool _isLoading = false;
 
   _loadNextPage() async {
+
+
+
     _isLoading = true;
+
     try {
       var nextMovies =
           await widget.provider.loadMedia(widget.category, page: _pageNumber);
-      setState(() {
-        _loadingState = LoadingState.DONE;
-        _movies.addAll(nextMovies);
-        _isLoading = false;
-        _pageNumber++;
-      });
+      if(mounted){
+        setState(() {
+          _loadingState = LoadingState.DONE;
+          _movies.addAll(nextMovies);
+          _isLoading = false;
+          _pageNumber++;
+        });
+      }
+ ;
     } catch (e) {
+
       _isLoading = false;
       if (_loadingState == LoadingState.LOADING) {
-        setState(() => _loadingState = LoadingState.ERROR);
+        if(mounted) {
+          setState(() => _loadingState = LoadingState.ERROR);
+        }
       }
     }
   }
