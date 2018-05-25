@@ -1,3 +1,4 @@
+简单适配了dart2.0 编译通过了
 # Flutter Cinematic
 
 This app is a Flutter port of the native Android App [Cinematic](https://github.com/aaronoe/Cinematic).
